@@ -73,7 +73,14 @@ basic.forever(function () {
         basic.showString("compass")
         while (1 == Mode) {
             direction = Math.round(input.compassHeading() / 90)
-            basic.showString("" + (direction))
+            if (graph == 1) {
+                led.plotBarGraph(
+                input.compassHeading(),
+                375
+                )
+            } else {
+                basic.showString("" + (direction))
+            }
         }
     }
     while (2 == Mode) {
