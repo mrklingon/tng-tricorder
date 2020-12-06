@@ -1,26 +1,29 @@
-input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
-    graph += 1
-    while (graph == 2) {
-        graph = 0
-    }
-})
 input.onButtonPressed(Button.A, function () {
+    music.playTone(523, music.beat(BeatFraction.Whole))
     Mode += 1
     if (6 < Mode) {
         Mode = 1
     }
 })
 input.onButtonPressed(Button.B, function () {
+    music.playMelody("C F C5 A - - - - ", 120)
     Mode = 9
     ship = images.createBigImage(`
         . . . . . . . . . .
-        # # # # . # # # # .
-        . . # . . . # . . .
+        # # # # . . # # # .
+        . . # . . . # # . .
         . . . # # # # # . .
         . . . . . . . . . .
         `)
     while (Mode == 9) {
         ship.scrollImage(1, 200)
+    }
+})
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    music.ringTone(131)
+    graph += 1
+    while (graph == 2) {
+        graph = 0
     }
 })
 function UTA () {
@@ -44,8 +47,8 @@ let gees = 0
 let temp = 0
 let light2 = 0
 let direction = 0
-let ship: Image = null
 let graph = 0
+let ship: Image = null
 let elist: string[] = []
 let klist: string[] = []
 let mlist: string[] = []
