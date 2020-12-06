@@ -20,7 +20,7 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    music.ringTone(131)
+    music.playTone(175, music.beat(BeatFraction.Whole))
     graph += 1
     while (graph == 2) {
         graph = 0
