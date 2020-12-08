@@ -22,7 +22,7 @@ input.onButtonPressed(Button.B, function () {
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.playTone(175, music.beat(BeatFraction.Whole))
     graph += 1
-    while (graph == 2) {
+    if (graph == 2) {
         graph = 0
     }
 })
@@ -79,7 +79,7 @@ basic.forever(function () {
                 375
                 )
             } else {
-                basic.showString("" + (direction))
+                basic.showString("" + direction)
             }
         }
     }
@@ -93,7 +93,7 @@ basic.forever(function () {
                 255
                 )
             } else {
-                basic.showString("" + (light2))
+                basic.showString("" + light2)
             }
         }
     }
@@ -107,7 +107,7 @@ basic.forever(function () {
                 120
                 )
             } else {
-                basic.showString("" + (temp))
+                basic.showString("" + temp)
             }
         }
     }
@@ -121,7 +121,7 @@ basic.forever(function () {
                 1500
                 )
             } else {
-                basic.showString("" + (gees))
+                basic.showString("" + gees)
             }
         }
     }
