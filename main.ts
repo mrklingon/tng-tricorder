@@ -73,7 +73,7 @@ basic.forever(function () {
         while (1 == Mode) {
             direction = Math.round(input.compassHeading() / 90)
             if (graph == 1) {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
                     input.compassHeading(),
                     375
@@ -88,11 +88,11 @@ basic.forever(function () {
     while (2 == Mode) {
         basic.showString("light")
         while (2 == Mode) {
-            light2 = input.lightLevel()
+            light2 = 0
             if (graph == 1) {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
-                    light2,
+                    input.lightLevel(),
                     255
                     )
                 }
@@ -107,7 +107,7 @@ basic.forever(function () {
         while (3 == Mode) {
             temp = input.temperature() * 9 / 5 + 32
             if (graph == 1) {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
                     temp,
                     120
@@ -124,7 +124,7 @@ basic.forever(function () {
         while (4 == Mode) {
             gees = 0 / 1000
             if (graph == 1) {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
                     input.acceleration(Dimension.Strength),
                     1500
@@ -140,7 +140,7 @@ basic.forever(function () {
         basic.showString("Audio")
         while (5 == Mode) {
             if (graph == 1) {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
                     input.soundLevel(),
                     255
