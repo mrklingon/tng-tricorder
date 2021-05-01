@@ -88,11 +88,11 @@ basic.forever(function () {
     while (2 == Mode) {
         basic.showString("light")
         while (2 == Mode) {
-            light2 = 0
+            light2 = input.lightLevel()
             if (graph == 1) {
                 for (let index = 0; index < 10; index++) {
                     led.plotBarGraph(
-                    input.lightLevel(),
+                    light2,
                     255
                     )
                 }
