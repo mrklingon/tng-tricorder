@@ -21,9 +21,8 @@ input.onButtonPressed(Button.B, function () {
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.playTone(175, music.beat(BeatFraction.Whole))
-    graph += 1
-    if (graph == 2) {
-        graph = 0
+    if (graph == 0) {
+        graph = 1
     }
 })
 function UTA () {
@@ -74,10 +73,13 @@ basic.forever(function () {
         while (1 == Mode) {
             direction = Math.round(input.compassHeading() / 90)
             if (graph == 1) {
-                led.plotBarGraph(
-                input.compassHeading(),
-                375
-                )
+                for (let index = 0; index < 4; index++) {
+                    led.plotBarGraph(
+                    input.compassHeading(),
+                    375
+                    )
+                }
+                graph = 0
             } else {
                 basic.showString("" + direction)
             }
@@ -88,10 +90,13 @@ basic.forever(function () {
         while (2 == Mode) {
             light2 = input.lightLevel()
             if (graph == 1) {
-                led.plotBarGraph(
-                light2,
-                255
-                )
+                for (let index = 0; index < 4; index++) {
+                    led.plotBarGraph(
+                    light2,
+                    255
+                    )
+                }
+                graph = 0
             } else {
                 basic.showString("" + light2)
             }
@@ -102,10 +107,13 @@ basic.forever(function () {
         while (3 == Mode) {
             temp = input.temperature() * 9 / 5 + 32
             if (graph == 1) {
-                led.plotBarGraph(
-                temp,
-                120
-                )
+                for (let index = 0; index < 4; index++) {
+                    led.plotBarGraph(
+                    temp,
+                    120
+                    )
+                }
+                graph = 0
             } else {
                 basic.showString("" + temp)
             }
@@ -116,23 +124,29 @@ basic.forever(function () {
         while (4 == Mode) {
             gees = 0 / 1000
             if (graph == 1) {
-                led.plotBarGraph(
-                input.acceleration(Dimension.Strength),
-                1500
-                )
+                for (let index = 0; index < 4; index++) {
+                    led.plotBarGraph(
+                    input.acceleration(Dimension.Strength),
+                    1500
+                    )
+                }
             } else {
                 basic.showString("" + gees)
             }
         }
+        graph = 0
     }
     while (5 == Mode) {
         basic.showString("Audio")
         while (5 == Mode) {
             if (graph == 1) {
-                led.plotBarGraph(
-                input.soundLevel(),
-                255
-                )
+                for (let index = 0; index < 4; index++) {
+                    led.plotBarGraph(
+                    input.soundLevel(),
+                    255
+                    )
+                }
+                graph = 0
             } else {
                 basic.showNumber(input.soundLevel())
             }
